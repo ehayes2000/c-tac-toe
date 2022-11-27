@@ -1,24 +1,29 @@
 #include <pybind11/pybind11.h>
+#include <pybind11/operators.h>
+
 
 namespace py = pybind11;
 
 class ArrayList{
 public:
     ArrayList();
-    py::object &operator [](unsigned long);
-    ArrayList &operator *(unsigned long);
-    ArrayList &operator +(ArrayList &);
-    ArrayList &operator =(ArrayList &);
-    ArrayList &setitem(unsigned long, py::object &);
+    ArrayList(py::list&);
+    ArrayList(ArrayList&);
+    py::object *operator [](size_t);
+    ArrayList &setitem(size_t, py::object &);
     ArrayList &append(py::object &);
-    ArrayList &remove(unsigned long);
+    ArrayList &remove(size_t);
     ArrayList &copy();
-    unsigned long find(py::object &);
+    ArrayList &operator =(ArrayList &);
+    ArrayList &operator *(size_t);
+    ArrayList &operator +(ArrayList &);
+    size_t find(py::object &);
 
 private:
     py::object *list;
     bool *isInit;
-    unsigned long size;
-    unsigned long used;
+    size_t size;
+    size_t used;
     void doubleArrayList();
+    const static int SIZE = 40;
 };
