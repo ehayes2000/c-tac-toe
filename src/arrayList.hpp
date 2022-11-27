@@ -7,10 +7,11 @@ namespace py = pybind11;
 class ArrayList{
 public:
     ArrayList();
-    ArrayList(py::list&);
+    ArrayList(py::iterable&);
     ArrayList(ArrayList&);
     py::object *operator [](size_t);
     ArrayList &setitem(size_t, py::object &);
+    std::string toString() const;
     ArrayList &append(py::object &);
     ArrayList &remove(size_t);
     ArrayList &copy();
