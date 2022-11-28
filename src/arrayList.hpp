@@ -9,6 +9,7 @@ public:
     ArrayList();
     ArrayList(py::iterable&);
     ArrayList(ArrayList&);
+    ~ArrayList();
     py::object *operator [](size_t);
     ArrayList &setitem(size_t, py::object &);
     std::string toString() const;

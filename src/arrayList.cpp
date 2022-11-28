@@ -1,4 +1,5 @@
 #include "arrayList.hpp"
+#include <stdio.h>
 
 ArrayList::ArrayList(){
     this->list = new py::object[SIZE];
@@ -8,6 +9,7 @@ ArrayList::ArrayList(){
 }
 
 ArrayList::ArrayList(py::iterable &l){
+    printf("CREATE \n");
     this->size = py::len(l);
     this->list = new py::object[this->size];
     this->isInit = new bool[this->size];
@@ -16,6 +18,13 @@ ArrayList::ArrayList(py::iterable &l){
         this->list[j] = py::reinterpret_borrow<py::object>(i);
         this->isInit[j++] = true;
     }
+}
+
+ArrayList::~ArrayList(){
+    printf("DESTROY %p \n", this->list);
+
+    // delete this->list;
+    // delete this->isInit;
 }
 
 py::object *ArrayList::operator [](size_t i){
@@ -35,6 +44,7 @@ ArrayList &ArrayList::setitem(size_t i, py::object &o){
 }
 
 std::string ArrayList::toString() const {
+    printf("MEM REF: %p \n", this->list);
     std::string s = "[";
     for (size_t i = 0; i < this->size; i ++){
         s += py::str(this->list[i]);
@@ -44,6 +54,8 @@ std::string ArrayList::toString() const {
     s += "]";
     return s;
 }
+
+
 
 
 
