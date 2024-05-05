@@ -68,24 +68,24 @@ static PyTypeObject PyCoolCArrayType = {
     .tp_methods = PyArrayList_methods,
 };
 
-static PyModuleDef arrayListModule = {
+static PyModuleDef myCoolCArrayModule = {
     .m_base = PyModuleDef_HEAD_INIT,
     .m_name = "myCoolCArray",
     .m_doc = "An exploration of c types in python",
     .m_size = -1,
 };
 
-PyMODINIT_FUNC PyInit_MyCoolCArray(void)
+PyMODINIT_FUNC PyInit_myCoolCArray(void)
 {
     PyObject *m;
     if (PyType_Ready(&PyCoolCArrayType) < 0)
         return NULL;
-    m = PyModule_Create(&arrayListModule);
+    m = PyModule_Create(&myCoolCArrayModule);
     if (m == NULL)
         return NULL;
 
     Py_INCREF(&PyCoolCArrayType);
-    if (PyModule_AddObject(m, "myCoolCArray", (PyObject *)&PyCoolCArrayType) < 0)
+    if (PyModule_AddObject(m, "MyCoolCArray", (PyObject *)&PyCoolCArrayType) < 0)
     {
         Py_DECREF(&PyCoolCArrayType);
         Py_DECREF(m);

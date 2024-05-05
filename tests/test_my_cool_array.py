@@ -3,8 +3,8 @@ import os
 import pytest
 so_dir = os.path.join(os.path.dirname(os.path.abspath(__file__)), "..")
 sys.path.append(so_dir)
-from myCoolCArray import MyCoolCArray 
-
+import myCoolCArray
+MyCoolCArray = myCoolCArray.MyCoolCArray
 
 def test_init():
     a = MyCoolCArray()

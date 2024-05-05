@@ -4,6 +4,7 @@
 #include <stdexcept>
 #include <new>
 #include <cstring>
+#include <Python.h>
 
 template <class T>
 class MyCoolCArray
@@ -49,5 +50,6 @@ private:
     size_t items;
     T *container;
 };
+template class MyCoolCArray<PyObject *>;
 
 #endif // MYCOOLCARRAY_H

@@ -5,9 +5,7 @@ cpp_extension = Extension(
     'myCoolCArray',              
     sources=['src/myCoolCArrayModule.cpp'],
     include_dirs=["src"],             
-    libraries=[],                
-    library_dirs=[],             
-    extra_compile_args=["-std=c++14"],       
+    extra_compile_args=["-std=c++17"],       
     language='c++',              
 )
 
