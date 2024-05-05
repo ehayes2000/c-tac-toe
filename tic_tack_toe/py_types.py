@@ -8,8 +8,23 @@ class Board:
     def __getitem__(self, i):
         return self.board[i]
 
-    def game_state(self): 
-        return util.game_state(self.board)
+    def game_state(self):
+        for i in range(3): 
+            # vertical
+            if self.board[0][i] == self.board[1][i] == self.board[2][i] != " ":
+                return self.board[0][i]
+            # horizontal
+            if self.board[i][0] == self.board[i][1] == self.board[i][2] != " ":
+                return self.board[i][0]
+        # diagonal
+        if self.board[0][0] == self.board[1][1] == self.board[2][2] != " ":
+            return self.board[0][0]
+        if self.board[2][0] == self.board[1][1] == self.board[0][2] != " ":
+            return self.board[1][1]
+        for r in self.board:
+            if " " in r:
+                return "ongoing"
+        return "draw" 
 
     def draw(self):
         print("_" * 60)

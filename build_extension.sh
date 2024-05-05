@@ -1,1 +1,2 @@
-python -m setup build_ext --inplace
+#! /bin/bash
+python -m setup build_ext --inplace --verbose

@@ -1,4 +1,4 @@
-from tic_tack_toe.util import game_state
+from tic_tack_toe.py_types import Board
 
 x_wins = [
     # Row 1 Win
@@ -114,8 +114,13 @@ draw_boards = [
     [["o", "x", "o"], 
      ["x", "x", "o"], 
      ["o", "o", "x"]],
-    
 ]
+
+def game_state(test_board):
+    board = Board()
+    board.board = test_board   
+    return board.game_state()
+
 def test_x_wins():
     for board in x_wins:
         assert game_state(board) == "x"

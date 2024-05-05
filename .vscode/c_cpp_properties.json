@@ -7,7 +7,7 @@
                 "/opt/homebrew/opt/python@3.12/Frameworks/Python.framework/Versions/3.12/include/python3.12"
             ],
             "defines": [],
-            "cStandard": "c17",
+            "cStandard": "c14",
             "cppStandard": "c++14",
             "intelliSenseMode": "linux-clang-x64"
         }
