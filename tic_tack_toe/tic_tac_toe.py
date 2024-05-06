@@ -1,9 +1,6 @@
-import random
-import tic_tack_toe.util as util
-
 class Board:
-    def __init__(self):
-        self.board = [[" " for i in range(3)] for i in range(3)]
+    def __init__(self, board):
+        self.board = board
 
     def __getitem__(self, i):
         return self.board[i]
@@ -93,56 +90,6 @@ class MinimaxBot(Player):
         return best_move, best_score
     def make_move(self, board):
         move, _ = self._minimax(board, self.xo, 0)
-        print("MINIMAX")
         board.draw()
         r, c = move
         board[r][c] = self.xo
-
-
-def user_compete(ai, player):
-    board = Board()
-    turn = 0
-    players_turn = True if player.xo == "x" else False
-    print(board.game_state())
-    while board.game_state() == "ongoing": 
-        if players_turn:    
-            print(f"Turn {turn}.")
-            board.draw()
-            player.make_move(board)
-            turn += 1
-        else: 
-            ai.make_move(board)    
-        players_turn = not players_turn
-    end_state = board.game_state()
-    board.draw()
-    if end_state == "draw":
-        print("Draw! :/")
-    elif end_state == player.xo:
-        print("You Win!")
-    else:
-        print("You lose :(")
-            
-def play_game():
-    print("Lets play tic-tac-toe!")
-    print("Do you want to play against:")
-    print("1. Random")
-    print("2. Minimax")
-    selected = None
-    while not selected:
-        selected = input("1 or 2 >>> ")
-        try:
-            selected = int(selected)
-            if selected != 1 and selected != 2:
-                selected = None
-        except: 
-            selected = None
-    user_plays = random.choice(["x", "o"])
-    ai_plays = "x" if user_plays == "o" else "o"
-    print(f"You play {user_plays.upper()}'s AI plays {ai_plays.upper()}'s")
-    if selected == 1:
-        user_compete(RandomBot(ai_plays), Human(user_plays))
-    else:
-        user_compete(MinimaxBot(ai_plays), Human(user_plays))
-
-if __name__ == "__main__":
-    play_game()

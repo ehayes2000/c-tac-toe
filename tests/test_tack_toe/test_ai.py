@@ -1,7 +1,7 @@
-import tic_tack_toe.py_types as ttt
+import tic_tack_toe.tic_tac_toe as ttt
 
 def test_minimax():
-    board = ttt.Board()
+    board = ttt.Board([[" " for i in range(3)] for i in range(3)])
     p1 = ttt.MinimaxBot("o")
     p2 = ttt.MinimaxBot("x")
     turn = True

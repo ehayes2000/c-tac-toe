@@ -1,4 +1,4 @@
-from tic_tack_toe.py_types import Board
+from tic_tack_toe.tic_tac_toe import Board
 
 x_wins = [
     # Row 1 Win
@@ -117,8 +117,7 @@ draw_boards = [
 ]
 
 def game_state(test_board):
-    board = Board()
-    board.board = test_board   
+    board = Board(test_board)
     return board.game_state()
 
 def test_x_wins():

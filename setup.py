@@ -2,8 +2,8 @@ from setuptools import setup, Extension
 
 # Define the extension module
 cpp_extension = Extension(
-    'myCoolCArray',              
-    sources=['src/myCoolCArrayModule.cpp'],
+    'myVec',              
+    sources=['src/module/myVecModule.cpp', 'src/myVec.cpp'],
     include_dirs=["src"],             
     extra_compile_args=["-std=c++17"],       
     language='c++',              
@@ -11,7 +11,7 @@ cpp_extension = Extension(
 
 # Setup function
 setup(
-    name='myCoolCArray',
+    name='myVec',
     version='1.0',
     description='A simple c++ array list extension for python',
     ext_modules=[cpp_extension],
