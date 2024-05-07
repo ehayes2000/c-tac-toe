@@ -24,7 +24,7 @@ An exploration of writing C extensions for Python using the [Python/C API](https
 
 I wanted to better understand the C/Python ecosystem and stumbled across an old project of mine which implemented a vector using [PyBind11](https://github.com/pybind/pybind11). I decided to implement a C Extension which provides a datatype that can serve as a drop in replacement for the built-in Python list. This datatype uses `PyObject` pointers so is probably slower than the built-in Python list, but gives a good overview of how to implement operators, methods, and attributes on a c-implemented datatype.
 
-Implementing C extenion datatypes gives maximum control over data, but forces manual reference counting which is tedious and easy to break. I can't imagine ever needing this level of control over the Python/C interface so if I were to actaually need to implement a performant datatype with a Python interface I would probably choose PyBind11 which makes it dramatically easier to pass memory between Python and C.
+Implementing C extenion datatypes gives maximum control over data, but forces manual reference counting which is tedious and easy to break. I can't imagine ever needing this level of control over the Python/C interface so if I were to actaually need to implement a performant datatype with a Python interface I would choose [PyBind11](https://github.com/pybind/pybind11), [Ctypes](https://docs.python.org/3/library/ctypes.html), or [Cython](https://cython.org/).
 
 ## Resources
 
