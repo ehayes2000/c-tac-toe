@@ -43,11 +43,11 @@ static PyTypeObject PyIteratorType = {
     .tp_dealloc = (destructor)PyIterator_dealloc,
     .tp_new = PyType_GenericNew,
 };
-static PyMethodDef PyArrayList_methods[] = {
+static PyMethodDef PyVec_methods[] = {
     {"pop", (PyCFunction)MyVec_pop, METH_NOARGS,
-     "Remove and return last integer from ArrayList"},
+     "Remove and return last integer from MyVec"},
     {"append", (PyCFunction)MyVec_append, METH_O,
-     "Append an integer to ArrayList"},
+     "Append an integer to MyVec"},
     {NULL}};
 
 static PySequenceMethods MyVec_sequence_methods = {
@@ -73,7 +73,7 @@ static PyTypeObject PyVecType = {
     .tp_dealloc = (destructor)MyVec_dealloc,
     .tp_richcompare = MyVec_richcompare,
     .tp_as_mapping = &MyVec_mapping_methods,
-    .tp_methods = PyArrayList_methods,
+    .tp_methods = PyVec_methods,
     .tp_as_sequence = &MyVec_sequence_methods,
 };
 

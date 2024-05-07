@@ -1,3 +1,5 @@
+import random
+
 class Board:
     def __init__(self, board):
         self.board = board
@@ -90,6 +92,5 @@ class MinimaxBot(Player):
         return best_move, best_score
     def make_move(self, board):
         move, _ = self._minimax(board, self.xo, 0)
-        board.draw()
         r, c = move
         board[r][c] = self.xo

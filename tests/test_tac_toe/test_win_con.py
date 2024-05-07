@@ -1,4 +1,4 @@
-from tic_tack_toe.tic_tac_toe import Board
+from tic_tac_toe.tic_tac_toe import Board
 
 x_wins = [
     # Row 1 Win

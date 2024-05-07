@@ -12,7 +12,7 @@ static int MyVec_init(PyVec *self, PyObject *args, PyObject *kwds)
 
     if (!self->obj)
     {
-        PyErr_SetString(PyExc_MemoryError, "Could not allocate ArrayList object");
+        PyErr_SetString(PyExc_MemoryError, "Could not allocate MyVec object");
         return -1;
     }
     if (!inputObject)
@@ -75,7 +75,7 @@ static PyObject *MyVec_pop(PyVec *self)
     }
     catch (std::out_of_range)
     {
-        PyErr_SetString(PyExc_IndexError, "pop from empty ArrayList");
+        PyErr_SetString(PyExc_IndexError, "pop from empty MyVec");
         return NULL;
     }
 }

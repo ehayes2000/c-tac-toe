@@ -1,4 +1,4 @@
-import tic_tack_toe.tic_tac_toe as ttt
+import tic_tac_toe.tic_tac_toe as ttt
 
 def test_minimax():
     board = ttt.Board([[" " for i in range(3)] for i in range(3)])
