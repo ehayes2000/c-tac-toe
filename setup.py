@@ -1,18 +1,18 @@
-from glob import glob
-from setuptools import setup
-from pybind11.setup_helpers import Pybind11Extension, build_ext
+from setuptools import setup, Extension
 
-ext_modules = [
-    Pybind11Extension(
-        "ArrayList",
-        glob("src/*.cpp")
-    )
-]
-
-setup(
-    name="ArrayList",
-    python_requires=">=3.7",
-    cmdclass={"build_ext": build_ext},
-    ext_modules=ext_modules
+# Define the extension module
+cpp_extension = Extension(
+    'myVec',              
+    sources=['src/module/myVecModule.cpp', 'src/myVec.cpp'],
+    include_dirs=["src"],             
+    extra_compile_args=["-std=c++17"],       
+    language='c++',              
 )
 
+# Setup function
+setup(
+    name='myVec',
+    version='1.0',
+    description='A simple c++ array list extension for python',
+    ext_modules=[cpp_extension],
+)

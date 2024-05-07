@@ -3,3 +3,6 @@ env
 dist
 .vscode
 *.egg*
+*.pyc
+**/__pycache__/
+*.so

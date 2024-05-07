@@ -1,0 +1,16 @@
+[tool.poetry]
+name = "arraylist"
+version = "0.1.0"
+description = "An exploration of defining c types in python"
+authors = ["Your Name <you@example.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.10"
+setuptools = "^69.5.1"
+pytest = "^8.2.0"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
